@@ -35,8 +35,8 @@ docker run \
 
 3. Access the GUI
 
-- VNC Client -> connect to localhost:5900
-- Browser (noVNC) → open http://localhost:6080
+- VNC Client => connect to localhost:5900
+- Browser (noVNC) => open http://localhost:6080
 
 ## Environment Variables ⚙️
 
