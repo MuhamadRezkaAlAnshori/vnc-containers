@@ -40,8 +40,8 @@ docker run \
 ```
 
 > [!NOTE]
-> ⚠️ This step is required because this image is meant to be used as a base image.
-> You should call /opt/run_ui.sh in your own ENTRYPOINT or CMD when extending the image.
+> This step is required because this image is meant to be used as a base image.
+> You should call `/opt/run_ui.sh` in your own `ENTRYPOINT` or `CMD` when extending the image.
 
 4. Access the GUI
 
