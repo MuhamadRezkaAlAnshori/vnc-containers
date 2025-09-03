@@ -17,14 +17,21 @@ servers or CI/CD pipelines.
 
 ## Getting Started 🚀
 
-1. Build the image
+1. Pull image from remote registry:
 
 ```bash
-docker build -t vnc-container-fluxbox fluxbox/     # image with fluxbox window manager (lightweight)
-docker build -t vnc container-xfce4   xfce4/       # image with xfce4 desktop environment (heavy)
+docker pull mepershin/vnc-container-fluxbox:latest   # image with fluxbox window manager
+docker pull mepershin/vnc-container-xfce4:latest     # image with xfce4 desktop environment
 ```
 
-2. Run the container
+or build the image:
+
+```bash
+docker build -t vnc-container-fluxbox fluxbox/     # image with fluxbox window manager
+docker build -t vnc container-xfce4   xfce4/       # image with xfce4 desktop environment
+```
+
+2. Run the container:
 
 ```bash
 docker run -it \
@@ -33,7 +40,7 @@ docker run -it \
     <image name>
 ```
 
-3. Start the GUI environment (in the container)
+3. Start the GUI environment (in the container):
 
 ```
 /opt/run_ui.sh
@@ -43,7 +50,7 @@ docker run -it \
 > This step is required because this image is meant to be used as a base image.
 > You should call `/opt/run_ui.sh` in your own `ENTRYPOINT` or `CMD` when extending the image.
 
-4. Access the GUI
+4. Access the GUI:
 
 - VNC Client => connect to localhost:5900
 - Browser (noVNC) => open http://localhost:6080
@@ -63,9 +70,14 @@ docker run -it \
 You can extend these Dockerfiles to run any GUI application:
 
 ```dockerfile
-FROM <TODO>
+FROM <container>
 RUN apt-get update && apt-get install -y firefox
 ```
+
+You can use prebuild containers in your pipelines:
+
+- https://hub.docker.com/r/mepershin/vnc-container-fluxbox
+- https://hub.docker.com/r/mepershin/vnc-container-xfce4
 
 ## Use Cases 💡
 
@@ -73,3 +85,4 @@ RUN apt-get update && apt-get install -y firefox
 - Remote development environments
 - Browser-based access to GUI tools
 - CI/CD pipelines with UI-based testing
+- Base image for your GUI container applications
