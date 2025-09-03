@@ -27,13 +27,13 @@ docker build -t vnc container-xfce4   xfce4/       # image with xfce4 desktop en
 2. Run the container
 
 ```bash
-docker run \
+docker run -it \
     -p 5900:5900 \ # VNC port
     -p 6900:6900 \ # noVNC port
     <image name>
 ```
 
-3. Start the GUI environment
+3. Start the GUI environment (in the container)
 
 ```
 /opt/run_ui.sh
