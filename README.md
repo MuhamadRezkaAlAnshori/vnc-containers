@@ -29,11 +29,21 @@ docker build -t vnc container-xfce4   xfce4/       # image with xfce4 desktop en
 ```bash
 docker run \
     -p 5900:5900 \ # VNC port
-    -p 6080:6080 \ # noVNC port
+    -p 6900:6900 \ # noVNC port
     <image name>
 ```
 
-3. Access the GUI
+3. Start the GUI environment
+
+```
+/opt/run_ui.sh
+```
+
+> [!NOTE]
+> ⚠️ This step is required because this image is meant to be used as a base image.
+> You should call /opt/run_ui.sh in your own ENTRYPOINT or CMD when extending the image.
+
+4. Access the GUI
 
 - VNC Client => connect to localhost:5900
 - Browser (noVNC) => open http://localhost:6080
@@ -45,6 +55,8 @@ docker run \
 | `DISPLAY_WIDTH`  | 1280          | Virtual display width  |
 | `DISPLAY_HEIGHT` | 800           | Virtual display height |
 | `DISPLAY_DEPTH`  | 24            | Color depth            |
+| `VNC_PORT`       | 5900          | VNC TCP port           |
+| `NOVNC_PORT`     | 6900          | noVNC HTTP port        |
 
 ## Extending 🛠️
 
