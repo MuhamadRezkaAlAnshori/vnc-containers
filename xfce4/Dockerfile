@@ -3,7 +3,7 @@ FROM ubuntu:24.04
 ENV TZ="UTC"
 
 RUN apt update && \
-    apt install -y xvfb x11vnc novnc websockify fluxbox xterm
+    apt install -y xvfb x11vnc novnc websockify xfce4 dbus-x11 xterm
 
 COPY run_ui.sh /opt
 
